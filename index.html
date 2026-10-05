@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Moumtaz – Comprendre, puis exceller | Cours de soutien en ligne</title>
+<meta name="description" content="Cours de soutien en ligne pour collégiens et lycéens, par des ingénieurs d'État. Français, anglais, maths, physique, SVT, informatique. Première séance gratuite.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✅</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&family=Caveat:wght@600;700&family=Aref+Ruqaa:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBFCFF; --white:#fff; --ink:#0E1440; --bic:#2338C9; --bic-dark:#1A2AA0; --bic-soft:#ECEFFF;
+  --red:#E03A3A; --fluo:#FFE45C; --rule:#DCE2F6; --mute:#565F8C;
+  --f:'Readex Pro',system-ui,-apple-system,'Segoe UI',Tahoma,sans-serif;
+  --hand:'Caveat','Segoe Print',cursive;
+  color-scheme:light;
+}
+html[lang=ar]{--hand:'Aref Ruqaa','Caveat',serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:var(--f);background:var(--paper);color:var(--ink);line-height:1.65;font-size:17px;overflow-x:hidden}
+html[lang=ar] body{line-height:1.9}
+a{color:inherit}
+img,svg{max-width:100%}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+h1,h2,h3{line-height:1.12;letter-spacing:-.025em}
+html[lang=ar] h1,html[lang=ar] h2,html[lang=ar] h3{letter-spacing:0;line-height:1.35}
+h2{font-size:clamp(2rem,4.4vw,3.1rem);font-weight:700;margin-bottom:16px}
+h3{font-weight:600}
+.lead{color:var(--mute);max-width:58ch;font-size:1.1rem}
+:focus-visible{outline:3px solid var(--bic);outline-offset:3px;border-radius:6px}
+.sec{padding:96px 0}
+@media(max-width:700px){.sec{padding:68px 0}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--bic);color:#fff;font:inherit;font-weight:600;padding:15px 26px;border-radius:12px;border:2px solid var(--bic);text-decoration:none;cursor:pointer;transition:background .2s,transform .2s}
+.btn:hover{background:var(--bic-dark);border-color:var(--bic-dark);transform:translateY(-1px)}
+.btn.alt{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn.alt:hover{background:var(--ink);color:#fff}
+.btn:disabled{opacity:.6;cursor:wait;transform:none}
+
+/* nav */
+nav{position:sticky;top:0;z-index:30;background:rgba(251,252,255,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--rule)}
+nav .wrap{display:flex;align-items:center;gap:22px;height:70px}
+.logo{display:flex;align-items:baseline;gap:9px;text-decoration:none;font-weight:700;font-size:1.45rem;letter-spacing:-.03em}
+.logo .ar{font-size:1.05rem;color:var(--bic);font-weight:600;letter-spacing:0}
+.logo svg{width:22px;height:18px;align-self:center}
+.links{display:flex;gap:24px;list-style:none;margin-inline-start:auto}
+.links a{text-decoration:none;color:var(--mute);font-weight:500;font-size:.95rem}
+.links a:hover{color:var(--ink)}
+.langs{display:flex;border:1.5px solid var(--rule);border-radius:10px;overflow:hidden;background:#fff}
+.langs button{font:inherit;font-size:.85rem;font-weight:600;border:0;background:transparent;color:var(--mute);padding:7px 11px;cursor:pointer}
+.langs button[aria-pressed=true]{background:var(--ink);color:#fff}
+nav .btn{padding:10px 18px;font-size:.92rem}
+@media(max-width:920px){.links{display:none}.langs{margin-inline-start:auto}}
+@media(max-width:520px){nav .btn{display:none}.logo .ar{display:none}}
+
+/* hero */
+.hero{padding:72px 0 96px}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center}
+@media(max-width:900px){.hero .wrap{grid-template-columns:1fr;gap:56px}.hero{padding:48px 0 72px}}
+.badge{display:inline-flex;align-items:center;gap:10px;font-size:.92rem;font-weight:500;background:#fff;border:1.5px solid var(--rule);padding:7px 16px 7px 12px;border-radius:10px;margin-bottom:28px}
+html[dir=rtl] .badge{padding:7px 12px 7px 16px}
+.badge i{width:9px;height:9px;border-radius:50%;background:var(--red);flex:none}
+h1{font-size:clamp(2.6rem,6.2vw,5.1rem);font-weight:700}
+h1 .a{display:block;font-weight:300;color:var(--mute)}
+h1 .b{display:block;color:var(--bic)}
+.hero p.intro{margin:26px 0 34px;max-width:52ch;font-size:1.15rem;color:#2f3766}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.hf{display:flex;flex-wrap:wrap;gap:10px 26px;list-style:none;margin-top:38px;font-weight:500;font-size:.95rem}
+.hf li{display:flex;align-items:center;gap:8px}
+.hf li::before{content:"✓";font-family:'Caveat',cursive;font-weight:700;font-size:1.5rem;line-height:1;color:var(--red)}
+
+/* notebook sheet (the hero moment) */
+.sheet{position:relative;background-color:#fff;border-radius:6px;padding:30px 26px 104px;padding-inline-start:80px;min-height:400px;
+  box-shadow:0 1px 0 #e3e7f6,0 30px 70px -30px rgba(14,20,64,.45);transform:rotate(-2deg);
+  background-image:
+    repeating-linear-gradient(180deg,transparent 0 31px,#B4C0EC 31px 32px),
+    repeating-linear-gradient(180deg,transparent 0 7px,#EAEEFB 7px 8px),
+    repeating-linear-gradient(90deg,transparent 0 31px,#F0F2FC 31px 32px);
+  background-position:0 6px}
+html[dir=rtl] .sheet{transform:rotate(2deg)}
+.sheet::before{content:"";position:absolute;inset-block:0;inset-inline-start:60px;width:2px;background:var(--red);opacity:.65}
+.sheet .head{font-family:var(--hand);font-size:1.55rem;font-weight:700;color:var(--bic);line-height:32px;height:32px;margin-bottom:32px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:calc(100% - 110px)}
+html[lang=ar] .sheet .head{font-size:1.25rem}
+.math{font-family:'Caveat',cursive;font-size:1.7rem;font-weight:600;color:var(--bic);line-height:32px;height:32px;display:flex;gap:12px;align-items:center;unicode-bidi:isolate}
+html[dir=rtl] .math{justify-content:flex-end}
+.tick{font-family:'Caveat',cursive;color:var(--red);font-weight:700;font-size:1.9rem;opacity:0;transform:scale(1.8)}
+.sheet.go .tick{animation:tick .35s ease-out forwards;animation-delay:var(--d)}
+@keyframes tick{to{opacity:1;transform:scale(1)}}
+.grade{position:absolute;inset-block-start:16px;inset-inline-end:18px;width:118px;height:118px;border:3px solid var(--red);border-radius:50%;
+  display:grid;place-items:center;color:var(--red);font-family:'Caveat',cursive;font-weight:700;transform:rotate(-8deg) scale(1.3);opacity:0;transition:transform .45s cubic-bezier(.3,1.6,.5,1),opacity .3s}
+.sheet.graded .grade{transform:rotate(-8deg) scale(1);opacity:1}
+.grade div{line-height:1;text-align:center;direction:ltr}
+.grade b{font-size:3.3rem;display:block}
+.grade span{font-size:1.5rem}
+.note{position:absolute;inset-block-end:30px;inset-inline-start:80px;inset-inline-end:20px;color:var(--red);font-family:var(--hand);font-weight:700;font-size:2rem;line-height:1.2;transform:rotate(-3deg);
+  clip-path:inset(0 100% 0 0);transition:clip-path 1s cubic-bezier(.6,.1,.3,1)}
+html[lang=ar] .note{font-size:1.7rem}
+html[dir=rtl] .note{transform:rotate(3deg);clip-path:inset(0 0 0 100%)}
+.sheet.done .note{clip-path:inset(0 0 0 0)}
+.note svg{display:block;width:min(260px,90%);height:14px;margin-top:2px}
+@media(max-width:520px){.sheet{padding-inline-start:64px;padding-inline-end:16px}.sheet::before{inset-inline-start:46px}.note{inset-inline-start:64px}.grade{width:96px;height:96px}.grade b{font-size:2.6rem}.math{font-size:1.45rem}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.tick{opacity:1;transform:none}.grade{opacity:1;transform:rotate(-8deg)}.note{clip-path:none!important}}
+
+/* who */
+.who{background:#fff;border-block:1px solid var(--rule)}
+.who .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px}
+@media(max-width:860px){.who .wrap{grid-template-columns:1fr;gap:24px}}
+.who .txt p{font-size:1.12rem;max-width:62ch}
+.who .txt p+p{margin-top:18px;color:var(--mute)}
+.sign{font-family:var(--hand);color:var(--bic);font-size:2rem;font-weight:700;margin-top:18px}
+html[lang=ar] .sign{font-size:1.6rem}
+.wf{list-style:none;margin-top:44px;display:grid;gap:0}
+.wf li{display:grid;grid-template-columns:220px 1fr;gap:20px;padding:20px 0;border-top:1.5px solid var(--rule)}
+.wf li:last-child{border-bottom:1.5px solid var(--rule)}
+.wf b{font-weight:600}
+.wf span{color:var(--mute)}
+@media(max-width:600px){.wf li{grid-template-columns:1fr;gap:4px}}
+
+/* offer */
+.tabs{display:inline-flex;gap:4px;padding:4px;background:var(--bic-soft);border-radius:12px;margin:36px 0 8px}
+.tab{font:inherit;font-weight:600;border:0;background:transparent;color:var(--bic);padding:10px 24px;border-radius:9px;cursor:pointer}
+.tab[aria-selected=true]{background:var(--bic);color:#fff}
+.levels{list-style:none}
+.lv{display:grid;grid-template-columns:230px 1fr auto;gap:20px;align-items:center;padding:22px 0;border-bottom:1.5px solid var(--rule)}
+.lv h3{font-size:1.25rem}
+.lv p{color:var(--mute)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
+.chip{background:var(--bic-soft);color:var(--bic);padding:5px 12px;border-radius:8px;font-size:.86rem;font-weight:500}
+@media(max-width:760px){.lv{grid-template-columns:1fr;gap:6px}.chips{justify-content:flex-start;margin-top:6px}}
+.sub-h{font-size:1.5rem;margin:64px 0 22px}
+.subj{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;list-style:none}
+.subj li{position:relative;background:#fff;border:2px solid var(--ink);border-radius:14px;padding:22px 16px;text-align:center;font-weight:600;font-size:1.05rem}
+.subj li::after{content:"";position:absolute;inset:5px;border:1.5px dashed rgba(14,20,64,.22);border-radius:9px;pointer-events:none}
+.format{margin-top:64px;background:var(--bic-soft);border-radius:18px;padding:32px}
+.format p{font-size:1.18rem;max-width:60ch}
+.format b{color:var(--bic);font-weight:600}
+.tl{margin-top:26px}
+.tl-hours{display:flex;justify-content:space-between;font-weight:600;font-size:.92rem;color:var(--mute);direction:ltr}
+html[dir=rtl] .tl-hours{direction:rtl}
+.track{position:relative;height:16px;border-radius:99px;background:rgba(35,56,201,.18);margin-top:8px}
+.track .blk{position:absolute;inset-block:0;inset-inline-start:0;width:40%;border-radius:99px;background:var(--bic)}
+.tl-legend{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:12px;font-size:.9rem;color:var(--mute)}
+.tl-legend span{display:inline-flex;align-items:center;gap:8px}
+.tl-legend i{width:22px;height:10px;border-radius:99px;background:rgba(35,56,201,.18)}
+.tl-legend span+span i{background:var(--bic)}
+
+/* method */
+.method{background:var(--ink);color:#fff}
+.method .lead{color:#AEB6E3}
+.ladder{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:52px}
+.ladder .top{height:190px;display:flex;align-items:flex-end;margin-bottom:22px;border-bottom:2px solid rgba(255,255,255,.18)}
+.ladder .bar{width:100%;height:calc(var(--i) * 25%);border-radius:12px 12px 0 0;background:rgba(124,141,255,calc(.18 + var(--i) * .14));display:flex;align-items:flex-start;padding:12px 14px;font-weight:700;font-size:1.1rem}
+.ladder li:last-child .bar{background:var(--fluo);color:var(--ink)}
+.ladder li:last-child .bar small{margin-inline-start:auto;font-family:'Caveat',cursive;color:var(--red);font-size:1.8rem;line-height:.8}
+.ladder h3{font-size:1.3rem;margin-bottom:8px}
+.ladder p{color:#C3C9EC;font-size:.98rem}
+@media(max-width:860px){.ladder{grid-template-columns:1fr;gap:30px}.ladder .top{height:auto;border:0;margin-bottom:12px}.ladder .bar{height:44px;width:calc(var(--i) * 25%);min-width:90px;border-radius:10px;align-items:center}}
+
+/* promise */
+.promise{padding:110px 0;background-color:#fff;
+  background-image:repeating-linear-gradient(180deg,transparent 0 39px,#E3E8F8 39px 40px)}
+.promise .wrap{position:relative}
+.promise .wrap::before{content:"";position:absolute;inset-block:-110px;inset-inline-start:8px;width:2px;background:var(--red);opacity:.5}
+.promise p{font-size:clamp(1.9rem,4.6vw,3.6rem);font-weight:600;line-height:1.25;letter-spacing:-.02em;max-width:22ch;padding-inline-start:40px}
+html[lang=ar] .promise p{letter-spacing:0;line-height:1.6}
+.promise .hl{background:linear-gradient(transparent 52%,var(--fluo) 52% 92%,transparent 92%);-webkit-box-decoration-break:clone;box-decoration-break:clone;padding:0 4px}
+
+/* pricing */
+.price{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:40px}
+@media(max-width:760px){.price{grid-template-columns:1fr}}
+.plan{border-radius:20px;padding:36px;background:#fff;border:2px solid var(--rule);display:flex;flex-direction:column}
+.plan.main{background:var(--ink);color:#fff;border-color:var(--ink)}
+.plan h3{font-size:1.25rem}
+.amt{font-size:3.2rem;font-weight:700;letter-spacing:-.03em;margin:8px 0 4px;color:var(--bic)}
+.plan.main .amt{color:var(--fluo)}
+.amt small{font-size:1rem;font-weight:400;color:var(--mute);letter-spacing:0}
+.plan.main .amt small{color:#AEB6E3}
+.plan ul{list-style:none;display:grid;gap:10px;margin:20px 0 30px;flex:1}
+.plan li{display:flex;gap:10px}
+.plan li::before{content:"✓";font-family:'Caveat',cursive;font-weight:700;font-size:1.4rem;line-height:1.2;color:var(--red)}
+.plan.main li::before{color:var(--fluo)}
+.plan.main .btn{background:var(--fluo);border-color:var(--fluo);color:var(--ink)}
+.plan.main .btn:hover{background:#fff;border-color:#fff}
+.steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:28px;counter-reset:s}
+@media(max-width:860px){.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.steps{grid-template-columns:1fr}}
+.steps li{counter-increment:s;border-top:2px solid var(--ink);padding-top:16px}
+.steps li::before{content:counter(s);display:block;font-family:'Caveat',cursive;font-weight:700;font-size:2.2rem;line-height:1;color:var(--red);margin-bottom:6px}
+.steps b{display:block;font-weight:600;margin-bottom:4px}
+.steps span{color:var(--mute);font-size:.95rem}
+
+/* form */
+.book{background:var(--bic-soft)}
+form{background:#fff;border-radius:22px;padding:36px;margin-top:34px;display:grid;grid-template-columns:1fr 1fr;gap:20px;box-shadow:0 20px 60px -30px rgba(14,20,64,.3)}
+@media(max-width:700px){form{grid-template-columns:1fr;padding:24px}}
+.f{display:flex;flex-direction:column;gap:7px}
+.full{grid-column:1/-1}
+label{font-weight:600;font-size:.92rem}
+input,select{font:inherit;padding:13px 14px;border-radius:12px;border:1.5px solid var(--rule);background:var(--paper);color:var(--ink);width:100%}
+input:focus,select:focus{border-color:var(--bic);outline:none;box-shadow:0 0 0 3px rgba(35,56,201,.15)}
+input:invalid:not(:placeholder-shown){border-color:var(--red)}
+.ltr{direction:ltr}
+html[dir=rtl] .ltr{text-align:right}
+.check{display:flex;gap:12px;align-items:flex-start;font-size:.9rem;color:var(--mute);font-weight:400}
+.check input{width:20px;height:20px;margin-top:3px;flex:none;accent-color:var(--bic)}
+.hp{position:absolute;inset-inline-start:-9999px}
+#msg{padding:16px;border-radius:12px;display:none;font-weight:500}
+#msg.ok{display:block;background:#E3F8EE;color:#0d5a3a}
+#msg.err{display:block;background:#FDE8E8;color:#8a1f1f}
+
+/* faq */
+.faq details{border-bottom:1.5px solid var(--rule);padding:20px 0}
+.faq details:first-of-type{border-top:1.5px solid var(--rule);margin-top:30px}
+.faq summary{cursor:pointer;font-weight:600;font-size:1.08rem;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:1.5rem;line-height:1;color:var(--bic);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{margin-top:10px;color:var(--mute);max-width:65ch}
+
+footer{background:var(--ink);color:#AEB6E3;padding:44px 0;font-size:.92rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+footer a{color:#fff}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="logo" href="#top" aria-label="Moumtaz">
+    <span>Moumtaz</span>
+    <svg viewBox="0 0 22 18" aria-hidden="true"><path d="M2 10 L8 16 L20 2" fill="none" stroke="#E03A3A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="ar" lang="ar">ممتاز</span>
+  </a>
+  <ul class="links">
+    <li><a href="#qui" data-i="nWho"></a></li>
+    <li><a href="#offre" data-i="nOffer"></a></li>
+    <li><a href="#methode" data-i="nMethod"></a></li>
+    <li><a href="#tarif" data-i="nPrice"></a></li>
+    <li><a href="#faq" data-i="nFaq"></a></li>
+  </ul>
+  <div class="langs" role="group" aria-label="Langue / اللغة / Language">
+    <button type="button" data-lang="fr" lang="fr">FR</button>
+    <button type="button" data-lang="ar" lang="ar">العربية</button>
+    <button type="button" data-lang="en" lang="en">EN</button>
+  </div>
+  <a class="btn" href="#reserver" data-i="nCta"></a>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+  <div>
+    <div class="badge"><i></i><span data-i="badge"></span></div>
+    <h1><span class="a" data-i="h1a"></span><span class="b" data-i="h1b"></span></h1>
+    <p class="intro" data-i="heroP"></p>
+    <div class="cta"><a class="btn" href="#reserver" data-i="cta1"></a><a class="btn alt" href="#methode" data-i="cta2"></a></div>
+    <ul class="hf" id="hf"></ul>
+  </div>
+
+  <div class="sheet" id="sheet" aria-hidden="true">
+    <div class="head" data-i="sheetHead"></div>
+    <div class="math" dir="ltr">f(x) = ln(x) / x <span class="tick" style="--d:.3s">✓</span></div>
+    <div class="math" dir="ltr">f′(x) = (1 − ln x) / x² <span class="tick" style="--d:.6s">✓</span></div>
+    <div class="math" dir="ltr">f′(x) = 0 ⇔ x = e <span class="tick" style="--d:.9s">✓</span></div>
+    <div class="math" dir="ltr">max f = f(e) = 1/e <span class="tick" style="--d:1.2s">✓</span></div>
+    <div class="grade"><div><b id="gnum">08</b><span>/20</span></div></div>
+    <div class="note"><span data-i="note"></span>
+      <svg viewBox="0 0 260 14" preserveAspectRatio="none"><path d="M3 9 C 60 3, 140 13, 257 5" fill="none" stroke="#E03A3A" stroke-width="3" stroke-linecap="round"/></svg>
+    </div>
+  </div>
+</div></header>
+
+<section class="who sec" id="qui"><div class="wrap">
+  <h2 data-i="whoT"></h2>
+  <div class="txt">
+    <p data-i="whoP1"></p>
+    <p data-i="whoP2"></p>
+    <div class="sign" data-i="sign"></div>
+    <ul class="wf" id="wf"></ul>
+  </div>
+</div></section>
+
+<section class="sec" id="offre"><div class="wrap">
+  <h2 data-i="offerT"></h2>
+  <p class="lead" data-i="offerL"></p>
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" aria-selected="true" data-t="col" data-i="tabCol"></button>
+    <button class="tab" role="tab" aria-selected="false" data-t="lyc" data-i="tabLyc"></button>
+  </div>
+  <ul class="levels" id="levels" role="tabpanel"></ul>
+
+  <h3 class="sub-h" data-i="subjT"></h3>
+  <ul class="subj" id="subj"></ul>
+
+  <div class="format">
+    <h3 class="sub-h" style="margin:0 0 10px" data-i="fmtT"></h3>
+    <p data-i="fmtP"></p>
+    <div class="tl" aria-hidden="true">
+      <div class="tl-hours" id="hours"></div>
+      <div class="track"><div class="blk"></div></div>
+      <div class="tl-legend"><span><i></i><em data-i="fmtRange" style="font-style:normal"></em></span><span><i></i><em data-i="fmtBlock" style="font-style:normal"></em></span></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="method sec" id="methode"><div class="wrap">
+  <h2 data-i="methodT"></h2>
+  <p class="lead" data-i="methodL"></p>
+  <ol class="ladder" id="ladder"></ol>
+</div></section>
+
+<section class="promise"><div class="wrap">
+  <p><span data-i="promise"></span> <span class="hl" data-i="promise2"></span></p>
+</div></section>
+
+<section class="sec" id="tarif"><div class="wrap">
+  <h2 data-i="priceT"></h2>
+  <div class="price">
+    <div class="plan"><h3 data-i="p1n"></h3><div class="amt" data-i="p1a"></div><ul id="p1l"></ul><a class="btn alt" href="#reserver" data-i="p1b"></a></div>
+    <div class="plan main"><h3 data-i="p2n"></h3><div class="amt"><span data-i="p2a"></span> <small data-i="p2u"></small></div><ul id="p2l"></ul><a class="btn" href="#reserver" data-i="p2b"></a></div>
+  </div>
+  <h3 class="sub-h" data-i="howT"></h3>
+  <ol class="steps" id="steps"></ol>
+</div></section>
+
+<section class="book sec" id="reserver"><div class="wrap">
+  <h2 data-i="bookT"></h2>
+  <p class="lead" data-i="bookL"></p>
+
+  <form id="form" novalidate>
+    <input type="hidden" name="access_key" value="VOTRE_CLE_WEB3FORMS">
+    <input type="hidden" name="subject" value="Nouvelle réservation – séance gratuite (Moumtaz)">
+    <input type="hidden" name="from_name" value="Site Moumtaz">
+    <input type="hidden" name="Langue" id="langField" value="fr">
+    <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+
+    <div class="f"><label for="prenom" data-i="fFirst"></label><input id="prenom" name="Prénom" required minlength="2" maxlength="40" placeholder=" " autocomplete="given-name"></div>
+    <div class="f"><label for="nom" data-i="fLast"></label><input id="nom" name="Nom" required minlength="2" maxlength="40" placeholder=" " autocomplete="family-name"></div>
+    <div class="f"><label for="tel" data-i="fTel"></label><input id="tel" class="ltr" name="Téléphone" type="tel" required pattern="^(\+212|0)[5-7][0-9]{8}$" placeholder="06XXXXXXXX" autocomplete="tel"></div>
+    <div class="f"><label for="email" data-i="fMail"></label><input id="email" class="ltr" name="Email" type="email" required maxlength="80" placeholder="nom@exemple.com" autocomplete="email"></div>
+    <div class="f"><label for="cycle" data-i="fLv"></label><select id="cycle" name="Niveau" required></select></div>
+    <div class="f"><label for="fil" data-i="fFil"></label><select id="fil" name="Filière" required></select></div>
+    <div class="f"><label for="date" data-i="fDate"></label><input id="date" name="Date souhaitée" type="date" required min="2026-11-01"></div>
+    <div class="f"><label for="heure" data-i="fHour"></label><select id="heure" name="Heure idéale" required></select></div>
+    <div class="f full"><label for="mat" data-i="fSubj"></label><input id="mat" name="Matières" maxlength="120" data-p="fSubjP"></div>
+    <label class="check full"><input type="checkbox" required id="ok"><span data-i="consent"></span></label>
+    <div class="f full"><button class="btn" type="submit" id="send" data-i="send"></button></div>
+    <div id="msg" class="full" role="status"></div>
+  </form>
+</div></section>
+
+<section class="faq sec" id="faq"><div class="wrap">
+  <h2 data-i="faqT"></h2>
+  <div id="faqList"></div>
+</div></section>
+
+<footer><div class="wrap">
+  <span data-i="foot"></span>
+  <span><span data-i="contact"></span> : <a href="mailto:contact@exemple.com">contact@exemple.com</a></span>
+</div></footer>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+
+const T={
+fr:{
+title:`Moumtaz – Comprendre, puis exceller | Cours de soutien en ligne`,
+desc:`Cours de soutien en ligne pour collégiens et lycéens, par des ingénieurs d'État. Français, anglais, maths, physique, SVT, informatique. Première séance gratuite.`,
+nWho:`Qui sommes-nous`,nOffer:`Notre offre`,nMethod:`Notre méthode`,nPrice:`Tarif`,nFaq:`FAQ`,nCta:`Séance gratuite`,
+badge:`Rentrée le 1ᵉʳ novembre, 1ʳᵉ séance offerte`,
+h1a:`Comprendre n'est que le début.`,h1b:`Exceller est le but.`,
+heroP:`Cours de soutien en ligne pour collégiens et lycéens, assurés par des ingénieurs d'État. On explique simplement jusqu'à ce que tout soit clair, puis on accompagne chaque élève jusqu'à l'excellence.`,
+cta1:`Réserver ma séance gratuite`,cta2:`Découvrir notre méthode`,
+hf:[`Ingénieurs d'État`,`En direct, le soir`,`Du collège au bac`],
+sheetHead:`Devoir surveillé n° 2 : maths`,note:`Excellent ! Continue ainsi.`,
+whoT:`Qui sommes-nous ?`,
+whoP1:`Nous sommes un groupe d'ingénieurs d'État. Nos études exigeantes nous ont appris une chose essentielle : la réussite n'est pas un don, c'est une méthode, de la rigueur et de la confiance en soi. Nous avons créé Moumtaz pour transmettre cette méthode aux élèves, avec des mots simples et beaucoup de patience, pour que l'excellence devienne accessible à tous.`,
+whoP2:`Notre conviction est simple : un élève qui comprend vraiment peut aller beaucoup plus loin. Comprendre n'est que le début ; notre travail, c'est de l'amener à exceller.`,
+sign:`L'équipe Moumtaz`,
+wf:[[`Ingénieurs d'État`,`Nous avons suivi des études exigeantes et nous savons ce que la réussite demande.`],[`Des explications simples`,`On part toujours de l'idée, jamais du par cœur.`],[`Un suivi de chaque élève`,`Chacun avance à son rythme, et nous suivons ses progrès pas à pas.`]],
+offerT:`Ce que nous proposons`,offerL:`Du soutien scolaire en direct, adapté au programme de chaque niveau, du collège au baccalauréat.`,
+tabCol:`Collège`,tabLyc:`Lycée`,
+lv:[`1ʳᵉ année collège`,`2ᵉ année collège`,`3ᵉ année collège`,`Tronc commun`,`1ʳᵉ année Bac`,`2ᵉ année Bac`],
+lvd:[`Partir sur des bases solides.`,`Consolider les acquis et gagner en méthode.`,`Préparer l'examen régional et l'entrée au lycée.`,`Réussir le passage au lycée.`,`Construire les bases du bac.`,`L'année de l'examen national.`],
+fil:[[`Collège`],[`Collège`],[`Collège`],[`BIOF (option français)`,`Option arabe`],[`Sciences mathématiques`,`Sciences expérimentales`],[`Sciences mathématiques`,`Sciences physiques`,`Sciences de la vie et de la terre (SVT)`]],
+subjT:`Six matières, une seule équipe`,subj:[`Français`,`Anglais`,`Mathématiques`,`Physique-chimie`,`SVT`,`Informatique`],
+fmtT:`Le format`,fmtP:`<b>2 séances par semaine</b>, <b>2 heures</b> chacune, en direct sur <b>Zoom ou Google Meet</b>, le soir entre <b>19h et minuit</b>.`,
+fmtRange:`Créneaux possibles`,fmtBlock:`1 séance = 2 heures`,
+hours:[`19h`,`20h`,`21h`,`22h`,`23h`,`00h`],
+methodT:`Comment nous enseignons`,methodL:`Quatre étapes, les mêmes pour chaque chapitre. On ne passe à l'étape suivante que lorsque la précédente est acquise.`,
+m:[[`Comprendre`,`On part de l'idée, pas de la formule. Explications simples, exemples concrets, et on réexplique autant de fois qu'il le faut.`],[`S'entraîner`,`Des exercices progressifs, du plus simple au niveau examen, pour que la compréhension devienne un réflexe.`],[`Corriger en direct`,`On corrige ensemble pendant la séance. Chaque erreur devient une leçon, jamais une gêne.`],[`Exceller`,`Sujets d'examen, méthode de rédaction, gestion du temps : on vise la meilleure note, pas seulement la moyenne.`]],
+promise:`Chez Moumtaz, on ne s'arrête pas quand l'élève a compris.`,promise2:`On continue jusqu'à ce qu'il excelle.`,
+priceT:`Un tarif simple`,p1n:`Séance découverte`,p1a:`Gratuite`,p1l:[`2 heures pour rencontrer l'équipe`,`Évaluation du niveau de l'élève`,`Aucun engagement`],p1b:`Réserver`,
+p2n:`Abonnement mensuel`,p2a:`200 DH`,p2u:`/ mois`,p2l:[`2 séances par semaine`,`2 heures par séance`,`En direct sur Zoom ou Google Meet`,`Paiement par virement bancaire`],p2b:`Commencer`,
+howT:`Comment s'inscrire`,s:[[`Réservez`,`Remplissez le formulaire avec votre créneau idéal.`],[`Séance gratuite`,`Nous vous envoyons le lien Zoom ou Meet.`],[`Inscription`,`Vous réglez par virement bancaire.`],[`Progressez`,`2 séances par semaine dès la rentrée.`]],
+bookT:`Réservez votre séance gratuite`,bookL:`Début des cours à partir du 1ᵉʳ novembre. Créneaux possibles : de 19h à minuit.`,
+fFirst:`Prénom`,fLast:`Nom`,fTel:`Téléphone (WhatsApp si possible)`,fMail:`Email`,fLv:`Niveau`,fFil:`Filière`,fDate:`Date souhaitée`,fHour:`Heure idéale de début`,fSubj:`Matière(s) à travailler`,fSubjP:`Ex : maths, physique`,
+consent:`J'accepte que ces informations soient utilisées uniquement pour organiser la séance gratuite. Si l'élève est mineur, je confirme être son parent ou tuteur.`,
+send:`Réserver ma séance gratuite`,sending:`Envoi en cours…`,ok:`Merci ! Votre demande est bien reçue. Nous vous contactons très vite pour confirmer votre séance gratuite.`,err:`L'envoi a échoué. Vérifiez votre connexion et réessayez.`,
+choose:`Choisir…`,chooseLv:`Choisissez d'abord le niveau`,
+faqT:`Questions fréquentes`,
+faq:[[`Comment se déroulent les séances ?`,`En direct, par visioconférence sur Zoom ou Google Meet. Vous recevez le lien avant chaque séance.`],[`Pourquoi le soir ?`,`Pour que l'élève suive les cours après sa journée de classe, sans empiéter sur l'école. Les créneaux vont de 19h à minuit.`],[`Comment payer ?`,`Par virement bancaire. Les coordonnées vous sont envoyées après la séance gratuite.`],[`Que faut-il pour suivre les cours ?`,`Un ordinateur ou une tablette, une connexion internet stable, un cahier et un stylo.`],[`Et si mon enfant n'aime pas la séance gratuite ?`,`Aucun problème : la séance est sans engagement.`]],
+foot:`© 2026 Moumtaz. Cours de soutien en ligne par des ingénieurs d'État.`,contact:`Contact`,
+fmtHour:(h,m)=>`${h}h${m}`
+},
+ar:{
+title:`ممتاز – الفهم بداية والتفوق هدف | دروس الدعم عن بعد`,
+desc:`دروس دعم مباشرة عبر الإنترنت لتلاميذ الإعدادي والثانوي يؤطرها مهندسو دولة: الفرنسية، الإنجليزية، الرياضيات، الفيزياء، علوم الحياة والأرض، المعلوميات. الحصة الأولى مجانية.`,
+nWho:`من نحن`,nOffer:`ماذا نقدم`,nMethod:`طريقتنا`,nPrice:`الأسعار`,nFaq:`أسئلة شائعة`,nCta:`حصة مجانية`,
+badge:`الدخول ابتداءً من 1 نونبر، والحصة الأولى مجانية`,
+h1a:`الفهم مجرد بداية.`,h1b:`والتفوق هو الهدف.`,
+heroP:`دروس دعم مباشرة عبر الإنترنت لتلاميذ الإعدادي والثانوي، يؤطرها مهندسو دولة. نشرح ببساطة حتى يتضح كل شيء، ثم نرافق كل تلميذ حتى يبلغ التفوق.`,
+cta1:`احجز حصتك المجانية`,cta2:`اكتشف طريقتنا`,
+hf:[`مهندسو دولة`,`حصص مباشرة في المساء`,`من الإعدادي إلى الباكالوريا`],
+sheetHead:`فرض محروس رقم 2: الرياضيات`,note:`ممتاز! واصل هكذا.`,
+whoT:`من نحن؟`,
+whoP1:`نحن مجموعة من مهندسي الدولة. علّمتنا دراستنا المتطلبة شيئاً أساسياً: النجاح ليس موهبة، بل منهجية وصرامة وثقة في النفس. أسسنا «ممتاز» لننقل هذه المنهجية إلى التلاميذ، بكلمات بسيطة وكثير من الصبر، حتى يصبح التفوق في متناول الجميع.`,
+whoP2:`قناعتنا بسيطة: التلميذ الذي يفهم حقاً يستطيع أن يذهب بعيداً. الفهم مجرد بداية، ومهمتنا أن نوصله إلى التفوق.`,
+sign:`فريق ممتاز`,
+wf:[[`مهندسو دولة`,`درسنا في مسارات متطلبة، ونعرف جيداً ما يتطلبه النجاح.`],[`شرح بسيط وواضح`,`ننطلق دائماً من الفكرة، لا من الحفظ.`],[`متابعة كل تلميذ`,`كل تلميذ يتقدم بإيقاعه، ونحن نتابع تقدمه خطوة بخطوة.`]],
+offerT:`ماذا نقدم`,offerL:`دروس دعم مباشرة، مكيفة مع مقرر كل مستوى، من الإعدادي إلى الباكالوريا.`,
+tabCol:`الإعدادي`,tabLyc:`الثانوي`,
+lv:[`الأولى إعدادي`,`الثانية إعدادي`,`الثالثة إعدادي`,`الجذع المشترك`,`الأولى باكالوريا`,`الثانية باكالوريا`],
+lvd:[`الانطلاق على أسس متينة.`,`تثبيت المكتسبات واكتساب المنهجية.`,`التحضير للامتحان الجهوي والانتقال إلى الثانوي.`,`انتقال ناجح إلى الثانوي.`,`بناء أسس الباكالوريا.`,`سنة الامتحان الوطني.`],
+fil:[[`الإعدادي`],[`الإعدادي`],[`الإعدادي`],[`خيار فرنسية (BIOF)`,`مسلك عربي`],[`علوم رياضية`,`علوم تجريبية`],[`علوم رياضية`,`علوم فيزيائية`,`علوم الحياة والأرض`]],
+subjT:`ست مواد، فريق واحد`,subj:[`الفرنسية`,`الإنجليزية`,`الرياضيات`,`الفيزياء والكيمياء`,`علوم الحياة والأرض`,`المعلوميات`],
+fmtT:`طريقة الحصص`,fmtP:`<b>حصتان في الأسبوع</b>، مدة كل واحدة <b>ساعتان</b>، مباشرة عبر <b>Zoom أو Google Meet</b>، في المساء بين <b>السابعة ومنتصف الليل</b>.`,
+fmtRange:`الأوقات الممكنة`,fmtBlock:`حصة واحدة = ساعتان`,
+hours:[`19:00`,`20:00`,`21:00`,`22:00`,`23:00`,`00:00`],
+methodT:`كيف ندرّس`,methodL:`أربع مراحل، هي نفسها في كل درس. لا ننتقل إلى المرحلة الموالية إلا بعد التمكن من سابقتها.`,
+m:[[`الفهم`,`ننطلق من الفكرة لا من القاعدة: شرح بسيط، أمثلة ملموسة، ونعيد الشرح كلما احتاج التلميذ إلى ذلك.`],[`التمرين`,`تمارين متدرجة من الأبسط إلى مستوى الامتحان، حتى يصبح الفهم مهارة ثابتة.`],[`التصحيح المباشر`,`نصحح معاً خلال الحصة. كل خطأ يصبح درساً، وليس سبباً للإحراج.`],[`التفوق`,`مواضيع الامتحانات، منهجية التحرير، تدبير الوقت: نستهدف أعلى نقطة، لا مجرد المعدل.`]],
+promise:`في «ممتاز» لا نتوقف عندما يفهم التلميذ،`,promise2:`بل نواصل معه حتى يتفوق.`,
+priceT:`أسعار واضحة`,p1n:`حصة تعريفية`,p1a:`مجانية`,p1l:[`ساعتان للتعرف على الفريق`,`تقييم مستوى التلميذ`,`دون أي التزام`],p1b:`احجز`,
+p2n:`الاشتراك الشهري`,p2a:`200 درهم`,p2u:`/ الشهر`,p2l:[`حصتان في الأسبوع`,`ساعتان لكل حصة`,`مباشرة عبر Zoom أو Google Meet`,`الأداء عبر تحويل بنكي`],p2b:`ابدأ الآن`,
+howT:`كيف تسجّل`,s:[[`احجز`,`املأ الاستمارة واختر الوقت الذي يناسبك.`],[`الحصة المجانية`,`نرسل لك رابط Zoom أو Meet.`],[`التسجيل`,`تؤدي الاشتراك عبر تحويل بنكي.`],[`التقدم`,`حصتان في الأسبوع ابتداءً من الدخول.`]],
+bookT:`احجز حصتك المجانية`,bookL:`تنطلق الدروس ابتداءً من 1 نونبر. الأوقات الممكنة: من السابعة مساءً إلى منتصف الليل.`,
+fFirst:`الاسم الشخصي`,fLast:`الاسم العائلي`,fTel:`الهاتف (واتساب إن أمكن)`,fMail:`البريد الإلكتروني`,fLv:`المستوى`,fFil:`المسلك`,fDate:`التاريخ المرغوب`,fHour:`ساعة البداية المفضلة`,fSubj:`المادة أو المواد`,fSubjP:`مثال: الرياضيات، الفيزياء`,
+consent:`أوافق على استعمال هذه المعلومات فقط لتنظيم الحصة المجانية. إذا كان التلميذ قاصراً، أؤكد أنني وليّ أمره.`,
+send:`احجز حصتي المجانية`,sending:`جارٍ الإرسال…`,ok:`شكراً! توصلنا بطلبك، وسنتصل بك قريباً لتأكيد حصتك المجانية.`,err:`تعذّر الإرسال. تحقق من اتصالك بالإنترنت وأعد المحاولة.`,
+choose:`اختر…`,chooseLv:`اختر المستوى أولاً`,
+faqT:`أسئلة شائعة`,
+faq:[[`كيف تجري الحصص؟`,`مباشرة عبر مكالمة فيديو على Zoom أو Google Meet. تتوصل بالرابط قبل كل حصة.`],[`لماذا في المساء؟`,`حتى يتابع التلميذ الدروس بعد يومه الدراسي دون أن يتعارض ذلك مع المدرسة. الأوقات بين السابعة ومنتصف الليل.`],[`كيف أؤدي الاشتراك؟`,`عبر تحويل بنكي. نرسل لك المعلومات البنكية بعد الحصة المجانية.`],[`ماذا يحتاج التلميذ؟`,`حاسوب أو لوحة إلكترونية، اتصال جيد بالإنترنت، دفتر وقلم.`],[`وإذا لم تعجب الحصة المجانية ابني أو ابنتي؟`,`لا مشكلة: الحصة دون أي التزام.`]],
+foot:`© 2026 ممتاز. دروس دعم عن بعد يؤطرها مهندسو دولة.`,contact:`للتواصل`,
+fmtHour:(h,m)=>`${h}:${m}`
+},
+en:{
+title:`Moumtaz – Understand, then excel | Online tutoring`,
+desc:`Live online tutoring for middle and high school students, taught by state engineers. French, English, maths, physics, life sciences, computer science. First session free.`,
+nWho:`Who we are`,nOffer:`What we offer`,nMethod:`Our method`,nPrice:`Pricing`,nFaq:`FAQ`,nCta:`Free session`,
+badge:`Classes start November 1, first session free`,
+h1a:`Understanding is just the beginning.`,h1b:`Excelling is the goal.`,
+heroP:`Live online tutoring for middle and high school students, taught by state engineers. We explain things simply until everything is clear, then guide every student all the way to excellence.`,
+cta1:`Book my free session`,cta2:`See how we teach`,
+hf:[`State engineers`,`Live, in the evening`,`Middle school to Bac`],
+sheetHead:`Test no. 2: maths`,note:`Excellent! Keep it up.`,
+whoT:`Who we are`,
+whoP1:`We are a group of state engineers. Our demanding studies taught us one essential thing: success isn't a gift, it's method, rigour and self-confidence. We created Moumtaz to pass that method on to students, in simple words and with plenty of patience, so that excellence is within everyone's reach.`,
+whoP2:`Our belief is simple: a student who truly understands can go much further. Understanding is just the beginning; our job is to take them to excellence.`,
+sign:`The Moumtaz team`,
+wf:[[`State engineers`,`We went through demanding studies and know what success takes.`],[`Simple explanations`,`We always start from the idea, never from memorising.`],[`Every student followed`,`Each student moves at their own pace, and we track their progress step by step.`]],
+offerT:`What we offer`,offerL:`Live tutoring adapted to the curriculum of each level, from middle school to the baccalaureate.`,
+tabCol:`Middle school`,tabLyc:`High school`,
+lv:[`1st year middle school`,`2nd year middle school`,`3rd year middle school`,`Common core`,`1st year Bac`,`2nd year Bac`],
+lvd:[`Start on solid foundations.`,`Strengthen the basics and build good method.`,`Prepare for the regional exam and high school.`,`Make a smooth move to high school.`,`Build the foundations of the Bac.`,`The year of the national exam.`],
+fil:[[`Middle school`],[`Middle school`],[`Middle school`],[`BIOF (French option)`,`Arabic track`],[`Mathematical sciences`,`Experimental sciences`],[`Mathematical sciences`,`Physical sciences`,`Life and earth sciences (SVT)`]],
+subjT:`Six subjects, one team`,subj:[`French`,`English`,`Mathematics`,`Physics & chemistry`,`Life & earth sciences`,`Computer science`],
+fmtT:`The format`,fmtP:`<b>2 sessions a week</b>, <b>2 hours</b> each, live on <b>Zoom or Google Meet</b>, in the evening between <b>7 pm and midnight</b>.`,
+fmtRange:`Available times`,fmtBlock:`1 session = 2 hours`,
+hours:[`7pm`,`8pm`,`9pm`,`10pm`,`11pm`,`12am`],
+methodT:`How we teach`,methodL:`Four steps, the same for every chapter. We only move on once the previous step is mastered.`,
+m:[[`Understand`,`We start from the idea, not the formula. Simple explanations, concrete examples, and we explain again as many times as needed.`],[`Practise`,`Progressive exercises, from the simplest to exam level, so understanding becomes second nature.`],[`Correct live`,`We correct together during the session. Every mistake becomes a lesson, never an embarrassment.`],[`Excel`,`Past exam papers, writing method, time management: we aim for the top grade, not just a pass.`]],
+promise:`At Moumtaz, we don't stop when a student understands.`,promise2:`We keep going until they excel.`,
+priceT:`Simple pricing`,p1n:`Discovery session`,p1a:`Free`,p1l:[`2 hours to meet the team`,`Assessment of the student's level`,`No commitment`],p1b:`Book`,
+p2n:`Monthly plan`,p2a:`200 DH`,p2u:`/ month`,p2l:[`2 sessions a week`,`2 hours per session`,`Live on Zoom or Google Meet`,`Payment by bank transfer`],p2b:`Get started`,
+howT:`How to sign up`,s:[[`Book`,`Fill in the form with your ideal time.`],[`Free session`,`We send you the Zoom or Meet link.`],[`Enrol`,`You pay by bank transfer.`],[`Progress`,`2 sessions a week from the start of term.`]],
+bookT:`Book your free session`,bookL:`Classes start from November 1. Available times: 7 pm to midnight.`,
+fFirst:`First name`,fLast:`Last name`,fTel:`Phone (WhatsApp if possible)`,fMail:`Email`,fLv:`Level`,fFil:`Track`,fDate:`Preferred date`,fHour:`Preferred start time`,fSubj:`Subject(s) to work on`,fSubjP:`e.g. maths, physics`,
+consent:`I agree that this information will be used only to organise the free session. If the student is a minor, I confirm I am their parent or guardian.`,
+send:`Book my free session`,sending:`Sending…`,ok:`Thank you! We've received your request and will contact you shortly to confirm your free session.`,err:`Sending failed. Check your connection and try again.`,
+choose:`Choose…`,chooseLv:`Choose the level first`,
+faqT:`Frequently asked questions`,
+faq:[[`How do sessions work?`,`Live, by video call on Zoom or Google Meet. You receive the link before each session.`],[`Why in the evening?`,`So students can attend after their school day without clashing with school. Times run from 7 pm to midnight.`],[`How do I pay?`,`By bank transfer. The details are sent to you after the free session.`],[`What does my child need?`,`A computer or tablet, a stable internet connection, a notebook and a pen.`],[`What if my child doesn't like the free session?`,`No problem: the session comes with no commitment.`]],
+foot:`© 2026 Moumtaz. Online tutoring by state engineers.`,contact:`Contact`,
+fmtHour:(h,m)=>{const hh=h>12?h-12:h;return `${hh}:${m} pm`}
+}};
+
+let lang='fr',cyc='col';
+
+function renderLevels(){
+  const t=T[lang],idx=cyc==='col'?[0,1,2]:[3,4,5];
+  $('#levels').innerHTML=idx.map(i=>`<li class="lv"><h3>${t.lv[i]}</h3><p>${t.lvd[i]}</p>${i>2?`<div class="chips">${t.fil[i].map(c=>`<span class="chip">${c}</span>`).join('')}</div>`:'<span></span>'}</li>`).join('');
+}
+function renderFil(){
+  const t=T[lang],v=$('#cycle').value,i=T.fr.lv.indexOf(v),cur=$('#fil').value;
+  $('#fil').innerHTML=i<0?`<option value="">${t.chooseLv}</option>`:T.fr.fil[i].map((x,j)=>`<option value="${x}">${t.fil[i][j]}</option>`).join('');
+  if(cur&&[...$('#fil').options].some(o=>o.value===cur))$('#fil').value=cur;
+}
+function render(l){
+  lang=T[l]?l:'fr';const t=T[lang],H=document.documentElement;
+  H.lang=lang;H.dir=lang==='ar'?'rtl':'ltr';
+  document.title=t.title;document.querySelector('meta[name=description]').content=t.desc;
+  $$('[data-i]').forEach(e=>{const v=t[e.dataset.i];if(typeof v==='string')e.innerHTML=v});
+  $$('[data-p]').forEach(e=>e.placeholder=t[e.dataset.p]);
+  $('#hf').innerHTML=t.hf.map(x=>`<li>${x}</li>`).join('');
+  $('#wf').innerHTML=t.wf.map(([a,b])=>`<li><b>${a}</b><span>${b}</span></li>`).join('');
+  $('#subj').innerHTML=t.subj.map(x=>`<li>${x}</li>`).join('');
+  $('#hours').innerHTML=t.hours.map(x=>`<span>${x}</span>`).join('');
+  $('#ladder').innerHTML=t.m.map(([a,b],k)=>`<li style="--i:${k+1}"><div class="top"><div class="bar">${k+1}${k===3?'<small>20/20</small>':''}</div></div><h3>${a}</h3><p>${b}</p></li>`).join('');
+  $('#p1l').innerHTML=t.p1l.map(x=>`<li>${x}</li>`).join('');
+  $('#p2l').innerHTML=t.p2l.map(x=>`<li>${x}</li>`).join('');
+  $('#steps').innerHTML=t.s.map(([a,b])=>`<li><b>${a}</b><span>${b}</span></li>`).join('');
+  $('#faqList').innerHTML=t.faq.map(([q,a])=>`<details><summary>${q}</summary><p>${a}</p></details>`).join('');
+  renderLevels();
+  // selects (values stay in French so submissions are consistent)
+  const cv=$('#cycle').value,hv=$('#heure').value;
+  $('#cycle').innerHTML=`<option value="">${t.choose}</option>`+T.fr.lv.map((v,i)=>`<option value="${v}">${t.lv[i]}</option>`).join('');
+  $('#cycle').value=cv;renderFil();
+  let opts=`<option value="">${t.choose}</option>`;
+  for(let m=19*60;m<=22*60;m+=30){const h=Math.floor(m/60),mm=String(m%60).padStart(2,'0');opts+=`<option value="${h}h${mm}">${t.fmtHour(h,mm)}</option>`}
+  $('#heure').innerHTML=opts;$('#heure').value=hv;
+  $('#langField').value=lang;
+  $$('.langs button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.lang===lang));
+  $('#msg').className='';
+  try{localStorage.setItem('moumtaz-lang',lang)}catch(e){}
+}
+
+// initial language: saved choice, then browser language, then French
+let start='fr';
+try{start=localStorage.getItem('moumtaz-lang')||''}catch(e){start=''}
+if(!start){const n=(navigator.language||'fr').slice(0,2);start=T[n]?n:'fr'}
+render(start);
+
+$$('.langs button').forEach(b=>b.onclick=()=>render(b.dataset.lang));
+$$('.tab').forEach(b=>b.onclick=()=>{cyc=b.dataset.t;$$('.tab').forEach(x=>x.setAttribute('aria-selected',x===b));renderLevels()});
+$('#cycle').onchange=renderFil;
+
+// hero moment: ticks, then the grade climbs, then the teacher's note
+(function(){
+  const s=$('#sheet'),g=$('#gnum');
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){g.textContent='19';s.classList.add('go','graded','done');return}
+  requestAnimationFrame(()=>s.classList.add('go'));
+  setTimeout(()=>{
+    s.classList.add('graded');
+    const from=8,to=19,dur=1100,t0=performance.now();
+    (function step(now){const p=Math.min(1,(now-t0)/dur),e=1-Math.pow(1-p,3);
+      g.textContent=String(Math.round(from+(to-from)*e)).padStart(2,'0');
+      if(p<1)requestAnimationFrame(step);else setTimeout(()=>s.classList.add('done'),150)})(t0);
+  },1700);
+})();
+
+// secure submission (Web3Forms)
+const form=$('#form'),msg=$('#msg');let last=0;
+form.addEventListener('submit',async e=>{
+  e.preventDefault();msg.className='';
+  if(!form.checkValidity()){form.reportValidity();return}
+  if(Date.now()-last<15000)return;          // anti-spam: 1 submission / 15 s
+  if(form.botcheck.checked)return;          // bot trap
+  const t=T[lang],btn=$('#send');
+  last=Date.now();btn.disabled=true;btn.textContent=t.sending;
+  try{
+    const r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Accept':'application/json'},body:new FormData(form)});
+    const j=await r.json();
+    if(!j.success)throw 0;
+    msg.className='ok';msg.textContent=t.ok;form.reset();renderFil();$('#langField').value=lang;
+  }catch(err){msg.className='err';msg.textContent=t.err}
+  btn.disabled=false;btn.textContent=t.send;
+});
+</script>
+</body>
+</html>
